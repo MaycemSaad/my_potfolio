@@ -210,7 +210,7 @@ export function Skills() {
       location: 'Le Mans, France'
     },
     {
-      degree: language === 'FR' ? 'Diplôme d’ingénieur en Data Science' : 'Engineering Degree in Data Science',
+      degree: language === 'FR' ? 'Diplôme d'ingénieur en Data Science' : 'Engineering Degree in Data Science',
       school: 'ESPRIT',
       period: '2023 – Présent',
       location: 'Tunis, Tunisia'

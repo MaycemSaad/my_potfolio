@@ -256,7 +256,7 @@ export function Skills() {
         <div className="grid lg:grid-cols-2 gap-8 items-stretch">
           {/* === Left Column - Fixed Height === */}
           <div className="flex flex-col">
-            <div className={`bg-gray-900/90 dark:bg-gray-900/90 backdrop-blur-xl rounded-2xl border border-gray-700/50 dark:border-gray-700/50 shadow-2xl flex-1 min-h-[800px] flex flex-col transition-all duration-700 ${
+            <div className={`bg-gray-900/70 dark:bg-white/80 backdrop-blur-xl rounded-2xl border border-gray-700/50 dark:border-gray-300/50 shadow-2xl flex-1 min-h-[800px] flex flex-col transition-all duration-700 ${
               isVisible ? 'animate-slide-in-left' : 'opacity-0 translate-x-[-50px]'
             }`}>
               <div className="p-8 flex-1 flex flex-col">
@@ -265,7 +265,7 @@ export function Skills() {
                   <h3 className="text-2xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
                     {language === 'FR' ? "Domaines d'Expertise" : 'Expertise Domains'}
                   </h3>
-                  <div className="grid grid-cols-2 gap-4">
+                  <div className="grid grid-cols-2 gap-4 max-h-[300px] overflow-y-auto pr-2">
                     {skillCategories.map((category) => (
                       <button
                         key={category.id}
@@ -273,14 +273,14 @@ export function Skills() {
                         className={`p-4 rounded-xl border-2 transition-all duration-300 text-left group ${
                           activeCategory === category.id
                             ? `border-transparent bg-gradient-to-r ${category.color} text-white shadow-lg`
-                            : 'border-gray-600 dark:border-gray-600 bg-gray-800/70 dark:bg-gray-800/70 hover:border-blue-400'
+                            : 'border-gray-600 dark:border-gray-400 bg-gray-800/50 dark:bg-gray-200/50 hover:border-blue-400'
                         }`}
                       >
                         <div className="flex items-center gap-3">
                           <div className={`w-10 h-10 rounded-lg flex items-center justify-center bg-gradient-to-r ${category.color}`}>
                             <category.icon className="w-5 h-5 text-white" />
                           </div>
-                          <span className="font-semibold text-sm text-white dark:text-white">{category.title}</span>
+                          <span className="font-semibold text-sm">{category.title}</span>
                         </div>
                       </button>
                     ))}
@@ -295,21 +295,21 @@ export function Skills() {
                         <currentCategory.icon className="w-6 h-6 text-white" />
                       </div>
                       <div>
-                        <h4 className="text-xl font-bold text-white dark:text-white">{currentCategory.title}</h4>
-                        <p className="text-gray-400 dark:text-gray-400 text-sm">
+                        <h4 className="text-xl font-bold text-white dark:text-gray-900">{currentCategory.title}</h4>
+                        <p className="text-gray-400 dark:text-gray-600 text-sm">
                           {language === 'FR' ? 'Niveau de maîtrise' : 'Skill level'}
                         </p>
                       </div>
                     </div>
 
-                    <div className="space-y-4 flex-1">
+                    <div className="space-y-4 flex-1 max-h-[400px] overflow-y-auto pr-2">
                       {currentCategory.skills.map((skill, i) => (
                         <div key={i} className="space-y-2">
                           <div className="flex justify-between text-sm font-medium">
-                            <span className="text-white dark:text-white">{skill.name}</span>
+                            <span className="text-white dark:text-gray-900">{skill.name}</span>
                             <span className="text-blue-400">{skill.level}%</span>
                           </div>
-                          <div className="w-full bg-gray-700 dark:bg-gray-700 rounded-full h-2 overflow-hidden">
+                          <div className="w-full bg-gray-700 dark:bg-gray-300 rounded-full h-2 overflow-hidden">
                             <div
                               className={`h-2 rounded-full bg-gradient-to-r ${currentCategory.color} transition-all duration-1000`}
                               style={{
@@ -329,7 +329,7 @@ export function Skills() {
 
           {/* === Right Column - Fixed Height === */}
           <div className="flex flex-col">
-            <div className={`bg-gray-900/90 dark:bg-gray-900/90 backdrop-blur-xl rounded-2xl border border-blue-500/20 shadow-2xl flex-1 min-h-[800px] flex flex-col transition-all duration-700 ${
+            <div className={`bg-gray-900/70 dark:bg-white/80 backdrop-blur-xl rounded-2xl border border-blue-500/20 shadow-2xl flex-1 min-h-[800px] flex flex-col transition-all duration-700 ${
               isVisible ? 'animate-slide-in-right' : 'opacity-0 translate-x-[50px]'
             }`}>
               <div className="p-8 flex-1 flex flex-col">
@@ -348,13 +348,13 @@ export function Skills() {
                     {education.map((edu, i) => (
                       <div 
                         key={i} 
-                        className="p-3 rounded-xl bg-gray-800/70 dark:bg-gray-800/70 hover:bg-gray-800/90 dark:hover:bg-gray-800/90 transition-all duration-300 group"
+                        className="p-3 rounded-xl bg-gray-800/50 dark:bg-gray-200/50 hover:bg-gray-800/70 dark:hover:bg-gray-200/70 transition-all duration-300 group"
                       >
-                        <h4 className="font-semibold text-white dark:text-white text-sm">
+                        <h4 className="font-semibold text-white dark:text-gray-900 text-sm">
                           {edu.degree}
                         </h4>
                         <p className="text-blue-400 font-medium text-xs">{edu.school}</p>
-                        <div className="flex items-center gap-1 text-xs text-gray-400 dark:text-gray-400 mt-1">
+                        <div className="flex items-center gap-1 text-xs text-gray-400 dark:text-gray-600 mt-1">
                           <span>{edu.period}</span>
                           <span>•</span>
                           <span className="truncate">{edu.location}</span>
@@ -375,7 +375,7 @@ export function Skills() {
                     </h3>
                   </div>
 
-                  <div className="space-y-4">
+                  <div className="space-y-4 h-[calc(100%-80px)] overflow-y-auto">
                     {certifications.map((group, i) => (
                       <div key={i} className="transition-all duration-500">
                         <h4 className={`text-sm font-semibold mb-3 bg-gradient-to-r ${group.color} bg-clip-text text-transparent`}>
@@ -385,16 +385,16 @@ export function Skills() {
                           {group.items.map((cert, j) => (
                             <div 
                               key={j} 
-                              className="flex items-center gap-3 p-3 rounded-xl bg-gray-800/70 dark:bg-gray-800/70 hover:bg-gray-800/90 dark:hover:bg-gray-800/90 transition-all duration-300 group"
+                              className="flex items-center gap-3 p-3 rounded-xl bg-gray-800/50 dark:bg-gray-200/50 hover:bg-gray-800/70 dark:hover:bg-gray-200/70 transition-all duration-300 group"
                             >
                               <div className={`w-8 h-8 rounded-lg bg-gradient-to-r ${group.color} flex items-center justify-center shadow-md group-hover:scale-110 transition-transform flex-shrink-0`}>
                                 <cert.icon className="w-4 h-4 text-white" />
                               </div>
                               <div className="flex-1 min-w-0">
-                                <h4 className="text-sm font-semibold text-white dark:text-white">
+                                <h4 className="text-sm font-semibold text-white dark:text-gray-900">
                                   {cert.title}
                                 </h4>
-                                <div className="flex items-center gap-1 text-xs text-gray-400 dark:text-gray-400">
+                                <div className="flex items-center gap-1 text-xs text-gray-400 dark:text-gray-600">
                                   <span>{cert.issuer}</span>
                                   <span>•</span>
                                   <span>{cert.year}</span>

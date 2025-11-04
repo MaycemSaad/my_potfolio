@@ -61,7 +61,7 @@ export function About() {
         {/* === Left Column - Fixed Height === */}
         <div className="flex flex-col">
           <div
-            className={`group bg-gray-900/90 dark:bg-gray-900/90 rounded-3xl shadow-2xl p-8 lg:p-10 backdrop-blur-xl border border-purple-500/30 hover:border-purple-500/50 transition-all duration-700 hover:shadow-purple-500/10 hover:shadow-2xl flex-1 min-h-[800px] flex flex-col ${
+            className={`group bg-gray-900/80 dark:bg-white/90 rounded-3xl shadow-2xl p-8 lg:p-10 backdrop-blur-xl border border-purple-500/30 hover:border-purple-500/50 transition-all duration-700 hover:shadow-purple-500/10 hover:shadow-2xl flex-1 min-h-[800px] flex flex-col ${
               isVisible ? 'animate-slide-in-left' : 'opacity-0 translate-x-[-50px]'
             }`}
           >
@@ -84,7 +84,7 @@ export function About() {
             {/* Enhanced detailed description with fixed height container */}
             <div className="space-y-6 flex-1 overflow-hidden">
               <div className="space-y-4">
-                <p className="text-lg leading-relaxed text-justify text-gray-300 dark:text-gray-300">
+                <p className="text-lg leading-relaxed text-justify text-gray-300 dark:text-gray-700">
                   {language === 'FR' ? (
                     <>
                       <span className="text-purple-400 font-semibold">Étudiante ingénieure en informatique</span> en double diplôme avec l'Université du Mans, je me spécialise en <span className="text-blue-400 font-medium">Data Science</span> et <span className="text-blue-400 font-medium">Actuariat</span>. Mon parcours unique allie <span className="text-gradient bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">rigueur mathématique</span> et <span className="text-gradient bg-gradient-to-r from-purple-400 to-blue-500 bg-clip-text text-transparent">expertise technique</span> pour résoudre des problèmes complexes à l'intersection de la finance, de l'assurance et de la technologie.
@@ -96,7 +96,7 @@ export function About() {
                   )}
                 </p>
 
-                <p className="leading-relaxed text-justify text-gray-300 dark:text-gray-300">
+                <p className="leading-relaxed text-justify text-gray-300 dark:text-gray-700">
                   {language === 'FR' ? (
                     <>
                       Passionnée par les <span className="text-green-400 font-medium">modèles prédictifs</span> et l'<span className="text-green-400 font-medium">intelligence artificielle</span>, j'ai développé une expertise solide en <span className="text-blue-400 font-medium">Machine Learning</span>, <span className="text-blue-400 font-medium">Deep Learning</span> et <span className="text-blue-400 font-medium">LLMs</span>. Mes projets incluent le développement de plateformes d'analyse ESG, des systèmes RAG pour l'analyse financière, et des applications IA génératives. Je maîtrise l'ensemble de la chaîne de valeur data, de l'extraction et transformation à la visualisation et déploiement de modèles en production.
@@ -108,7 +108,7 @@ export function About() {
                   )}
                 </p>
 
-                <p className="leading-relaxed text-justify text-gray-300 dark:text-gray-300">
+                <p className="leading-relaxed text-justify text-gray-300 dark:text-gray-700">
                   {language === 'FR' ? (
                     <>
                       Mon approche combine <span className="text-purple-400 font-medium">analyse quantitative avancée</span> et <span className="text-purple-400 font-medium">ingénierie logicielle robuste</span>. J'excelle particulièrement dans la modélisation statistique, les méthodes de Monte Carlo, l'analyse de séries temporelles et la conception d'architectures data scalable. Je recherche actuellement un <span className="text-gradient bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">stage de fin d'études à partir de janvier 2026</span> pour contribuer à des projets innovants en data science, finance quantitative ou analyse actuarielle.
@@ -148,7 +148,7 @@ export function About() {
                 ].map((item, i) => (
                   <div 
                     key={i} 
-                    className="group/item flex items-start space-x-4 p-3 rounded-xl bg-gray-800/70 dark:bg-gray-800/70 hover:bg-gray-800/90 dark:hover:bg-gray-800/90 transition-all duration-300 cursor-pointer"
+                    className="group/item flex items-start space-x-4 p-3 rounded-xl bg-gray-800/50 dark:bg-gray-100/50 hover:bg-gray-800/70 dark:hover:bg-gray-100/70 transition-all duration-300 cursor-pointer"
                     onMouseEnter={() => {}}
                   >
                     <div className="relative flex-shrink-0">
@@ -157,10 +157,10 @@ export function About() {
                       </div>
                     </div>
                     <div className="flex-1 min-w-0">
-                      <h4 className="font-semibold text-base text-white dark:text-white group-hover/item:text-transparent group-hover/item:bg-gradient-to-r group-hover/item:from-purple-400 group-hover/item:to-blue-400 group-hover/item:bg-clip-text transition-all duration-300">
+                      <h4 className="font-semibold text-base text-white dark:text-gray-900 group-hover/item:text-transparent group-hover/item:bg-gradient-to-r group-hover/item:from-purple-400 group-hover/item:to-blue-400 group-hover/item:bg-clip-text transition-all duration-300">
                         {language === 'FR' ? item.titleFR : item.titleEN}
                       </h4>
-                      <p className="text-xs text-gray-400 dark:text-gray-400 mt-1 leading-relaxed">
+                      <p className="text-xs text-gray-400 dark:text-gray-600 mt-1 leading-relaxed">
                         {language === 'FR' ? item.descFR : item.descEN}
                       </p>
                     </div>
@@ -175,7 +175,7 @@ export function About() {
         <div className="flex flex-col space-y-8">
           {/* Languages Card - Fixed Height */}
           <div
-            className={`group bg-gray-900/90 dark:bg-gray-900/90 rounded-3xl shadow-2xl p-8 lg:p-10 backdrop-blur-xl border border-blue-500/30 hover:border-blue-500/50 transition-all duration-700 hover:shadow-blue-500/10 flex-1 min-h-[400px] ${
+            className={`group bg-gray-900/80 dark:bg-white/90 rounded-3xl shadow-2xl p-8 lg:p-10 backdrop-blur-xl border border-blue-500/30 hover:border-blue-500/50 transition-all duration-700 hover:shadow-blue-500/10 flex-1 min-h-[400px] ${
               isVisible ? 'animate-slide-in-right' : 'opacity-0 translate-x-[50px]'
             }`}
           >
@@ -192,20 +192,20 @@ export function About() {
               {languages.map((lang, i) => (
                 <div 
                   key={i} 
-                  className="group/item p-4 rounded-xl bg-gray-800/70 dark:bg-gray-800/70 hover:bg-gray-800/90 dark:hover:bg-gray-800/90 transition-all duration-300"
+                  className="group/item p-4 rounded-xl bg-gray-800/50 dark:bg-gray-100/50 hover:bg-gray-800/70 dark:hover:bg-gray-100/70 transition-all duration-300"
                 >
                   <div className="flex justify-between items-center mb-3">
                     <div className="flex items-center gap-3">
                       <span className="text-xl">{lang.flag}</span>
-                      <span className="font-medium text-white dark:text-white">
+                      <span className="font-medium text-white dark:text-gray-900">
                         {language === 'FR' ? lang.nameFR : lang.nameEN}
                       </span>
                     </div>
-                    <span className="text-sm text-gray-400 dark:text-gray-400 px-3 py-1 bg-gray-700/70 dark:bg-gray-700/70 rounded-full">
+                    <span className="text-sm text-gray-400 dark:text-gray-600 px-3 py-1 bg-gray-700/50 dark:bg-gray-200/50 rounded-full">
                       {language === 'FR' ? lang.levelFR : lang.levelEN}
                     </span>
                   </div>
-                  <div className="w-full bg-gray-700 dark:bg-gray-700 rounded-full h-2 overflow-hidden">
+                  <div className="w-full bg-gray-700 dark:bg-gray-300 rounded-full h-2 overflow-hidden">
                     <div
                       className="bg-gradient-to-r from-blue-500 to-cyan-500 h-2 rounded-full transition-all duration-1000 ease-out"
                       style={{ 
@@ -221,7 +221,7 @@ export function About() {
 
           {/* Interests Card - Fixed Height */}
           <div
-            className={`group bg-gray-900/90 dark:bg-gray-900/90 rounded-3xl shadow-2xl p-8 lg:p-10 backdrop-blur-xl border border-green-500/30 hover:border-green-500/50 transition-all duration-700 hover:shadow-green-500/10 flex-1 min-h-[400px] ${
+            className={`group bg-gray-900/80 dark:bg-white/90 rounded-3xl shadow-2xl p-8 lg:p-10 backdrop-blur-xl border border-green-500/30 hover:border-green-500/50 transition-all duration-700 hover:shadow-green-500/10 flex-1 min-h-[400px] ${
               isVisible ? 'animate-slide-in-right animation-delay-300' : 'opacity-0 translate-x-[50px]'
             }`}
           >
@@ -238,8 +238,8 @@ export function About() {
               {interests.map((interest, i) => (
                 <div
                   key={i}
-                  className={`p-3 rounded-xl bg-gray-800/70 dark:bg-gray-800/70 border border-transparent hover:border-green-500/50 cursor-pointer transition-all duration-300 group/interest h-fit ${
-                    activeInterest === i ? 'bg-gray-800/90 dark:bg-gray-800/90 border-green-500/50' : ''
+                  className={`p-3 rounded-xl bg-gray-800/50 dark:bg-gray-100/50 border border-transparent hover:border-green-500/50 cursor-pointer transition-all duration-300 group/interest h-fit ${
+                    activeInterest === i ? 'bg-gray-800/70 dark:bg-gray-100/70 border-green-500/50' : ''
                   }`}
                   onMouseEnter={() => setActiveInterest(i)}
                   onMouseLeave={() => setActiveInterest(null)}
@@ -248,21 +248,21 @@ export function About() {
                     <div className={`w-7 h-7 rounded-lg flex items-center justify-center transition-all duration-300 flex-shrink-0 ${
                       activeInterest === i 
                         ? 'bg-gradient-to-br from-green-500 to-emerald-500' 
-                        : 'bg-gray-700/70 dark:bg-gray-700/70'
+                        : 'bg-gray-700/50 dark:bg-gray-200/50'
                     }`}>
                       <interest.icon className={`w-3.5 h-3.5 transition-all duration-300 ${
-                        activeInterest === i ? 'text-white' : 'text-gray-400 dark:text-gray-400'
+                        activeInterest === i ? 'text-white' : 'text-gray-400 dark:text-gray-600'
                       }`} />
                     </div>
                     <span className={`font-medium text-xs transition-all duration-300 line-clamp-1 ${
                       activeInterest === i 
                         ? 'text-green-400' 
-                        : 'text-white dark:text-white'
+                        : 'text-white dark:text-gray-900'
                     }`}>
                       {interest.name}
                     </span>
                   </div>
-                  <p className={`text-xs text-gray-400 dark:text-gray-400 transition-all duration-300 leading-tight ${
+                  <p className={`text-xs text-gray-400 dark:text-gray-600 transition-all duration-300 leading-tight ${
                     activeInterest === i ? 'opacity-100 max-h-20' : 'opacity-0 max-h-0'
                   } overflow-hidden`}>
                     {interest.desc}
