@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
-import { ArrowLeft, ArrowRight, ExternalLink, Github, Sparkles, Zap , Image} from 'lucide-react'
+import { ArrowLeft, ArrowRight, ExternalLink, Github, Sparkles, Zap , Image } from 'lucide-react'
 import { useLanguageTheme } from '@/providers/LanguageThemeContext'
 
 export function Projects() {
@@ -24,7 +24,7 @@ const projects = [
     techs: ['Python', 'NLP', 'Machine Learning', 'PDFPlumber', 'PyTesseract', 'Regex', 'MongoDB', 'Ollama', 'Web Scraping'],
     demo: '#',
     source: '#',
-    images: ['/projects/ESG.png', '/projects/esg8.jpg', '/projects/esg9.jpg','/projects/esg5.jpg','/projects/esg6.jpg','/projects/esg2.jpg'],
+    images: ['/projects/ESG.png', '/projects/esg8.jpg', '/projects/esg9.jpg'],
   },
   {
     id: 'due-diligence',
@@ -37,7 +37,7 @@ const projects = [
     techs: ['Python', 'Streamlit', 'NLP', 'LangChain', 'LLMs', 'MongoDB', 'Dash', 'Plotly'],
     demo: '#',
     source: '#',
-    images: ['/projects/1.jpg', '/projects/2.jpg', '/projects/3.jpg'],
+    images: ['/projects/due1.png', '/projects/due2.png'],
   },
   {
     id: 'actuarialmind',
@@ -76,7 +76,7 @@ const projects = [
     techs: ['R', 'StMoMo', 'dplyr', 'Lee-Carter', 'Monte Carlo', 'Solvabilité II'],
     demo: '#',
     source: '#',
-    images: ['/projects/actuariat/distribution.jpg', '/projects/actuariat/evolution-de-prob-de-survie.jpg', '/projects/actuariat/Flux.jpg', '/projects/actuariat/projection-des-taux-de-mortalité.jpg','/projects/actuariat/table-de-mortalité.jpg','/projects/actuariat/taux-de-survie.jpg'],
+    images: ['/projects/actuarial1.jpg', '/projects/actuarial2.jpg'],
   },
   {
     id: 'audio-diffusion',
@@ -89,7 +89,7 @@ const projects = [
     techs: ['Python', 'Librosa', 'Deep Learning', 'Diffusion Models', 'DDPM', 'VAE', 'ResNet-50', 'CRISP-DM'],
     demo: '#',
     source: '#',
-    images: [],
+    images: ['/projects/audio1.jpg', '/projects/audio2.jpg'],
   },
   {
     id: 'churn-prediction',
@@ -102,7 +102,7 @@ const projects = [
     techs: ['Python', 'Scikit-learn', 'Pandas', 'NumPy', 'Flask', 'Machine Learning'],
     demo: '#',
     source: '#',
-    images: [],
+    images: ['/projects/churn1.jpg', '/projects/churn2.jpg'],
   },
   {
     id: 'nftun',
@@ -115,7 +115,7 @@ const projects = [
     techs: ['Symfony', 'JavaFX', 'FlutterFlow', 'MySQL', 'Blockchain'],
     demo: '#',
     source: '#',
-    images: [],
+    images: ['/projects/nft1.jpg', '/projects/nft2.jpg'],
   },
   {
     id: 'ecoinsight',
@@ -128,7 +128,7 @@ const projects = [
     techs: ['Power BI', 'Data Visualization', 'KPIs', 'Dashboard', 'Analytics'],
     demo: '#',
     source: '#',
-    images: [],
+    images: ['/projects/powerbi1.jpg', '/projects/powerbi2.jpg'],
   },
   {
     id: 'task-management',
@@ -141,7 +141,7 @@ const projects = [
     techs: ['Next.js', 'NestJS', 'PostgreSQL', 'Microservices', 'TypeScript'],
     demo: '#',
     source: '#',
-    images: [],
+    images: ['/projects/task1.jpg', '/projects/task2.jpg'],
   }
 ]
 
@@ -172,13 +172,17 @@ const projects = [
   return project.images && Array.isArray(project.images) && project.images.length > 0
 }
 
-  const nextImage = () => {
+const nextImage = () => {
+  if (hasImages(active)) {
     setImgIndex((p) => (p + 1) % active.images.length)
   }
+}
 
-  const prevImage = () => {
+const prevImage = () => {
+  if (hasImages(active)) {
     setImgIndex((p) => (p - 1 + active.images.length) % active.images.length)
   }
+}
 
   return (
     <section
@@ -279,77 +283,95 @@ const projects = [
           </div>
 
           {/* === IMAGE SIDE === */}
-          <div
-            className={`transition-all duration-1000 ${
-              isVisible 
-                ? direction === 'right' 
-                  ? 'animate-slide-in-right' 
-                  : 'animate-slide-in-right-reverse'
-                : 'opacity-0 translate-x-[100px]'
-            }`}
-          >
-            {hasImages(active) ? (
-              <div className="relative group rounded-2xl overflow-hidden border border-purple-500/30 
-                             shadow-2xl bg-gray-900/80 dark:bg-gray-100/80 backdrop-blur-xl 
-                             hover:shadow-3xl transition-all duration-500 hover:scale-[1.02]">
-                
-                {/* Main Image */}
-<img
-  src={active.images[imgIndex]}
-  alt={language === 'FR' ? active.titleFR : active.titleEN}
-  className="w-full h-[320px] object-contain transition-all duration-700 ease-out group-hover:scale-105 brightness-110"
-/>
+       
+              const hasImages = (project: any) => {
+                return project.images && Array.isArray(project.images) && project.images.length > 0
+              }
 
-                
-                {/* Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              // Modifiez les fonctions nextImage et prevImage pour inclure une vérification
+              const nextImage = () => {
+                if (hasImages(active)) {
+                  setImgIndex((p) => (p + 1) % active.images.length)
+                }
+              }
 
-                {/* Image Navigation */}
-                <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2">
-                  {active.images.map((_, dotIndex) => (
-                    <button
-                      key={dotIndex}
-                      onClick={() => setImgIndex(dotIndex)}
-                      className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                        dotIndex === imgIndex 
-                          ? 'bg-white scale-125' 
-                          : 'bg-white/50 hover:bg-white/80'
-                      }`}
+              const prevImage = () => {
+                if (hasImages(active)) {
+                  setImgIndex((p) => (p - 1 + active.images.length) % active.images.length)
+                }
+              }
+
+              // Remplacez toute la section "IMAGE SIDE" par ce code :
+              <div
+                className={`transition-all duration-1000 ${
+                  isVisible 
+                    ? direction === 'right' 
+                      ? 'animate-slide-in-right' 
+                      : 'animate-slide-in-right-reverse'
+                    : 'opacity-0 translate-x-[100px]'
+                }`}
+              >
+                {hasImages(active) ? (
+                  <div className="relative group rounded-2xl overflow-hidden border border-purple-500/30 
+                                shadow-2xl bg-gray-900/80 dark:bg-gray-100/80 backdrop-blur-xl 
+                                hover:shadow-3xl transition-all duration-500 hover:scale-[1.02]">
+                    
+                    {/* Main Image */}
+                    <img
+                      src={active.images[imgIndex]}
+                      alt={language === 'FR' ? active.titleFR : active.titleEN}
+                      className="w-full h-[400px] object-cover transition-all duration-700 ease-out group-hover:scale-105"
                     />
-                  ))}
-                </div>
+                    
+                    {/* Gradient Overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
-                {/* Navigation Arrows */}
-                <div className="absolute inset-0 flex items-center justify-between px-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <button
-                    onClick={prevImage}
-                    className="bg-gray-900/70 dark:bg-gray-200/70 hover:bg-gray-800 dark:hover:bg-gray-300 rounded-full p-3 shadow-2xl transform hover:scale-110 transition-all duration-300"
-                  >
-                    <ArrowLeft className="w-5 h-5" />
-                  </button>
-                  <button
-                    onClick={nextImage}
-                    className="bg-gray-900/70 dark:bg-gray-200/70 hover:bg-gray-800 dark:hover:bg-gray-300 rounded-full p-3 shadow-2xl transform hover:scale-110 transition-all duration-300"
-                  >
-                    <ArrowRight className="w-5 h-5" />
-                  </button>
-                </div>
+                    {/* Image Navigation */}
+                    <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2">
+                      {active.images.map((_, dotIndex) => (
+                        <button
+                          key={dotIndex}
+                          onClick={() => setImgIndex(dotIndex)}
+                          className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                            dotIndex === imgIndex 
+                              ? 'bg-white scale-125' 
+                              : 'bg-white/50 hover:bg-white/80'
+                          }`}
+                        />
+                      ))}
+                    </div>
+
+                    {/* Navigation Arrows */}
+                    <div className="absolute inset-0 flex items-center justify-between px-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <button
+                        onClick={prevImage}
+                        className="bg-gray-900/70 dark:bg-gray-200/70 hover:bg-gray-800 dark:hover:bg-gray-300 rounded-full p-3 shadow-2xl transform hover:scale-110 transition-all duration-300"
+                      >
+                        <ArrowLeft className="w-5 h-5" />
+                      </button>
+                      <button
+                        onClick={nextImage}
+                        className="bg-gray-900/70 dark:bg-gray-200/70 hover:bg-gray-800 dark:hover:bg-gray-300 rounded-full p-3 shadow-2xl transform hover:scale-110 transition-all duration-300"
+                      >
+                        <ArrowRight className="w-5 h-5" />
+                      </button>
+                    </div>
+                  </div>
+                ) : (
+                  // Fallback quand il n'y a pas d'images
+                  <div className="relative rounded-2xl overflow-hidden border border-purple-500/30 
+                                shadow-2xl bg-gray-800/50 dark:bg-gray-200/50 backdrop-blur-xl 
+                                flex flex-col items-center justify-center h-[400px]">
+                  <Image className="w-16 h-16 text-gray-400 dark:text-gray-500 mb-4" />
+                    <p className="text-gray-400 dark:text-gray-500 text-lg font-medium">
+                      {language === 'FR' ? 'Aucune image disponible' : 'No images available'}
+                    </p>
+                    <p className="text-gray-500 dark:text-gray-400 text-sm mt-2">
+                      {language === 'FR' ? 'Visualisation en cours de développement' : 'Visualization in development'}
+                    </p>
+                  </div>
+                )}
               </div>
-            ) : (
-              // Fallback quand il n'y a pas d'images
-              <div className="relative rounded-2xl overflow-hidden border border-purple-500/30 
-                             shadow-2xl bg-gray-800/50 dark:bg-gray-200/50 backdrop-blur-xl 
-                             flex flex-col items-center justify-center h-[400px]">
-                <Image className="w-16 h-16 text-gray-400 dark:text-gray-500 mb-4" />
-                <p className="text-gray-400 dark:text-gray-500 text-lg font-medium">
-                  {language === 'FR' ? 'Aucune image disponible' : 'No images available'}
-                </p>
-                <p className="text-gray-500 dark:text-gray-400 text-sm mt-2">
-                  {language === 'FR' ? 'Visualisation en cours de développement' : 'Visualization in development'}
-                </p>
-              </div>
-            )}
-          </div>
         </div>
 
         {/* === PROJECT NAVIGATION === */}

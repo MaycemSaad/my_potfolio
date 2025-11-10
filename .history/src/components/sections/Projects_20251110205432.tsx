@@ -24,7 +24,7 @@ const projects = [
     techs: ['Python', 'NLP', 'Machine Learning', 'PDFPlumber', 'PyTesseract', 'Regex', 'MongoDB', 'Ollama', 'Web Scraping'],
     demo: '#',
     source: '#',
-    images: ['/projects/ESG.png', '/projects/esg8.jpg', '/projects/esg9.jpg','/projects/esg5.jpg','/projects/esg6.jpg','/projects/esg2.jpg'],
+    images: ['/projects/ESG.png', '/projects/esg8.jpg', '/projects/esg9.jpg','/projects/esg5.jpg','/projects/esg6.jpg','/projects/esg6.jpg'],
   },
   {
     id: 'due-diligence',

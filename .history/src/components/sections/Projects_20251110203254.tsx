@@ -24,7 +24,7 @@ const projects = [
     techs: ['Python', 'NLP', 'Machine Learning', 'PDFPlumber', 'PyTesseract', 'Regex', 'MongoDB', 'Ollama', 'Web Scraping'],
     demo: '#',
     source: '#',
-    images: ['/projects/ESG.png', '/projects/esg8.jpg', '/projects/esg9.jpg','/projects/esg5.jpg','/projects/esg6.jpg','/projects/esg2.jpg'],
+    images: ['/projects/ESG.png', '/projects/esg8.jpg', '/projects/esg9.jpg'],
   },
   {
     id: 'due-diligence',
@@ -294,12 +294,11 @@ const projects = [
                              hover:shadow-3xl transition-all duration-500 hover:scale-[1.02]">
                 
                 {/* Main Image */}
-<img
-  src={active.images[imgIndex]}
-  alt={language === 'FR' ? active.titleFR : active.titleEN}
-  className="w-full h-[320px] object-contain transition-all duration-700 ease-out group-hover:scale-105 brightness-110"
-/>
-
+                <img
+                  src={active.images[imgIndex]}
+                  alt={language === 'FR' ? active.titleFR : active.titleEN}
+                  className="w-full h-[400px] object-cover transition-all duration-700 ease-out group-hover:scale-105"
+                />
                 
                 {/* Gradient Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
