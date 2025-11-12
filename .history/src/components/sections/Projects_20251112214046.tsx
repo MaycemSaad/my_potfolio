@@ -102,7 +102,7 @@ const projects = [
     techs: ['Python', 'Scikit-learn', 'Pandas', 'NumPy', 'Flask', 'Machine Learning'],
     demo: '#',
     source: '#',
-    images: ['/projects/churn/Home.png','/projects/churn/Formulaire.jpg', '/projects/churn/affichage.jpg', '/projects/churn/Dashboard.jpg'],
+    images: ['/projects/chur', '/projects/churn2.png', '/projects/churn3.png'],
   },
   {
     id: 'nftun',
