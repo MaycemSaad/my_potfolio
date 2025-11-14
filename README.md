@@ -4,19 +4,19 @@
 
 ---
 
-## 🧩 À propos
-Bienvenue sur mon **portfolio personnel**, développé pour présenter mes **projets**, mes **compétences techniques** et mon **parcours académique** dans le domaine du **génie logiciel** et de **l’actuariat**.  
+## 🧩 About
+Welcome to my **personal portfolio**, designed to showcase my **projects**, **technical skills**, and **academic background** in **software engineering** and **actuarial science**.  
 
-Je combine la **data science**, l’**intelligence artificielle** et les **méthodes actuarielles** pour concevoir des solutions innovantes et à fort impact.
+I combine **data science**, **artificial intelligence**, and **actuarial methods** to build innovative, high-impact solutions.
 
 ---
 
-## 🛠️ Technologies utilisées
-- **Framework :** Next.js  
-- **Langage :** JavaScript / TypeScript  
-- **Style :** Tailwind CSS  
-- **Déploiement :** Vercel  
-- **Gestion de versions :** Git & GitHub  
+## 🛠️ Technologies Used
+- **Framework:** Next.js  
+- **Languages:** JavaScript / TypeScript  
+- **Styling:** Tailwind CSS  
+- **Deployment:** Vercel  
+- **Version Control:** Git & GitHub  
 
 ---
 
